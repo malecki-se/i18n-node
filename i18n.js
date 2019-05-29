@@ -522,6 +522,30 @@ module.exports = (function() {
     delete locales[locale];
   };
 
+  i18n.setLocalesFromString = function setLocalesFromString(string) {
+    try {
+      locales = JSON.parse(string);
+    } catch (e) {
+
+    }
+  };
+
+  i18n.setLocalesFromJSON = function setLocalesFromJSON(json) {
+    if (json && typeof json === 'object') locales = json;
+  };
+
+  i18n.setOneLocaleFromString = function setLocalesFromString(locale, string) {
+    try {
+      if (locale) locales[locale] = JSON.parse(string);
+    } catch (e) {
+
+    }
+  };
+
+  i18n.setOneLocaleFromJSON = function setLocalesFromJSON(locale, json) {
+    if (locale && json && typeof json === 'object') locales[locale] = json;
+  };
+
   // ===================
   // = private methods =
   // ===================
