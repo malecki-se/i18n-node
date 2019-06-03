@@ -233,7 +233,7 @@ module.exports = (function() {
     }
 
     // head over to postProcessing
-    return postProcess(msg, namedValues, args);
+    return postProcess(msg, namedValues, args) || phrase;
   };
 
   i18n.__mf = function i18nMessageformat(phrase) {
